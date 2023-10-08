@@ -9,9 +9,9 @@ sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
 
 ```sh
 # disable bluetooth
-sudo echo "dtoverlay=disable-bt" > /boot/config.txt
+sudo echo "dtoverlay=disable-bt" >> /boot/config.txt
 # power button
-sudo echo "dtoverlay=gpio-shutdown" > /boot/config.txt
+sudo echo "dtoverlay=gpio-shutdown" >> /boot/config.txt
 ```
 
 ## Tailscale
