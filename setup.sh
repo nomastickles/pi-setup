@@ -51,3 +51,7 @@ sudo lazydocker
 
 # crontab -e
 # @reboot (sleep 30s ; cd /home/pak ; /usr/local/bin/docker-compose up -d)&
+
+# sudo nano /boot/config.txt
+# dtoverlay=disable-bt
+# dtoverlay=gpio-shutdown
