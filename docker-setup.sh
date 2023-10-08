@@ -38,8 +38,6 @@ docker-compose --version
 # to upgrade Docker run apt-mark unhold, upgrade the packages, and hold them again
 sudo apt-mark hold docker containerd
 
-# get prometheus.yml
-# get docker-compose.yml
 sudo docker-compose up -d
 
 # test node exporter
@@ -48,10 +46,3 @@ curl http://localhost:9100/metrics
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 sudo cp $HOME/.local/bin/lazydocker /usr/local/bin
 sudo lazydocker
-
-# crontab -e
-# @reboot (sleep 30s ; cd /home/pak ; /usr/local/bin/docker-compose up -d)&
-
-# sudo nano /boot/config.txt
-# dtoverlay=disable-bt
-# dtoverlay=gpio-shutdown
