@@ -1,10 +1,5 @@
 # pi setup
 
-## Docker
-```sh
-sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
-```
-
 ## Hardware
 
 ```sh
@@ -12,6 +7,11 @@ sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
 sudo echo "dtoverlay=disable-bt" >> /boot/config.txt
 # power button
 sudo echo "dtoverlay=gpio-shutdown" >> /boot/config.txt
+```
+
+## Docker
+```sh
+sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
 ```
 
 ## Tailscale
