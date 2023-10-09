@@ -1,13 +1,5 @@
 version: "3.8"
-
-# https://prometheus.io/docs/guides/node-exporter/
-# https://prometheus.io/docs/guides/cadvisor/#monitoring-docker-container-metrics-using-cadvisor
-# https://thesmarthomejourney.com/2022/07/25/monitoring-smarthome-prometheus/
-
-# dashboards https://grafana.com/grafana/dashboards/14282-cadvisor-exporter/
-# https://grafana.com/grafana/dashboards/1860-node-exporter-full/
-# https://grafana.com/grafana/dashboards/15172-node-exporter-for-prometheus-dashboard-based-on-11074/
-# https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/
+# docker-compose -f monitoring.yaml up -d
 
 services:
   node_exporter:
@@ -71,3 +63,11 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
+# https://prometheus.io/docs/guides/node-exporter/
+# https://prometheus.io/docs/guides/cadvisor/#monitoring-docker-container-metrics-using-cadvisor
+# https://thesmarthomejourney.com/2022/07/25/monitoring-smarthome-prometheus/
+
+# dashboards https://grafana.com/grafana/dashboards/14282-cadvisor-exporter/
+# https://grafana.com/grafana/dashboards/1860-node-exporter-full/
+# https://grafana.com/grafana/dashboards/15172-node-exporter-for-prometheus-dashboard-based-on-11074/
+# https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/
