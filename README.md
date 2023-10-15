@@ -1,7 +1,10 @@
 # pi setup
 
 ```bash
-sudo apt update && sudo apt install git
+sudo apt update -y && \
+sudo apt install git && \
+git clone https://github.com/nomastickles/pi-setup.git
+
 ```
 
 ## Docker
