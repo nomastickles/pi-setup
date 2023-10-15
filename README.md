@@ -17,9 +17,9 @@ curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --ssh
 ## Hardware
 
 ```bash
-# disable bluetooth
-sudo echo "dtoverlay=disable-bt" >> /boot/config.txt
-# power button
+# disable bluetooth && add enable power button
+sudo su && \
+sudo echo "dtoverlay=disable-bt" >> /boot/config.txt && \
 sudo echo "dtoverlay=gpio-shutdown" >> /boot/config.txt
 ```
 
