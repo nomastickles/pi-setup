@@ -4,8 +4,9 @@
 sudo apt update -y && \
 sudo apt install git && \
 git clone https://github.com/nomastickles/pi-setup.git && \
-sudo chmod u+x ./pi-setup/pi-setup.sh && \
-sudo ./pi-setup/pi-setup.sh
+cd pi-setup && \
+sudo chmod u+x ./pi-setup.sh && \
+sudo ./pi-setup.sh
 ```
 
 ## Tailscale
