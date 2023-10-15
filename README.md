@@ -3,13 +3,9 @@
 ```bash
 sudo apt update -y && \
 sudo apt install git && \
-git clone https://github.com/nomastickles/pi-setup.git
-
-```
-
-## Docker
-```bash
-sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
+git clone https://github.com/nomastickles/pi-setup.git && \
+cd pi-setup && \
+sudo chmod u+x pi-setup.sh && sudo ./pi-setup.sh
 ```
 
 ## Tailscale
