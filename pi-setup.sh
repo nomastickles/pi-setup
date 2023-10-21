@@ -38,7 +38,7 @@ docker-compose --version
 # to upgrade Docker run apt-mark unhold, upgrade the packages, and hold them again
 sudo apt-mark hold docker containerd
 
-cd ./docker && sudo docker-compose -f monitoring.yaml up -d
+cd ./docker && sudo docker-compose up -d
 
 # test node exporter
 curl http://localhost:9100/metrics

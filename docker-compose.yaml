@@ -1,10 +1,10 @@
 version: "3.8"
-# docker-compose -f monitoring.yaml up -d
+# docker-compose up -d
 
 services:
   node_exporter:
     image: quay.io/prometheus/node-exporter:latest
-    container_name: node_exporter
+    container_name: node-exporter
     command:
       - "--path.rootfs=/host"
     network_mode: host
@@ -59,6 +59,32 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
+  nats-server:
+    image: nats:latest
+    container_name: nats-server
+    # command: "-js"
+    command: "--http_port 8222 -js"
+    restart: unless-stopped
+    ports:
+      - 4222:4222
+      # - 6222:6222
+      - 8222:8222
+  prometheus-nats-exporter:
+    image: natsio/prometheus-nats-exporter:latest
+    container_name: prometheus-nats-exporter
+    restart: unless-stopped
+    depends_on:
+      - nats-server
+    ports:
+      - 7777:7777
+    command: "-connz -varz -channelz -serverz -subz -jsz=all http://nats-server:8222"
+  nats-box:
+    image: natsio/nats-box:latest
+    container_name: nats-box
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - nats-server
 
 volumes:
   prometheus_data:
@@ -69,5 +95,5 @@ volumes:
 
 # dashboards https://grafana.com/grafana/dashboards/14282-cadvisor-exporter/
 # https://grafana.com/grafana/dashboards/1860-node-exporter-full/
-# https://grafana.com/grafana/dashboards/15172-node-exporter-for-prometheus-dashboard-based-on-11074/
 # https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/
+# https://github.com/nats-io/prometheus-nats-exporter/tree/main/walkthrough
