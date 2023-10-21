@@ -1,23 +1,27 @@
 # pi setup
 
-## Hardware
-
-```sh
-# disable bluetooth
-sudo echo "dtoverlay=disable-bt" >> /boot/config.txt
-# power button
-sudo echo "dtoverlay=gpio-shutdown" >> /boot/config.txt
-```
-
-## Docker
-```sh
-sudo chmod u+x docker-setup.sh && sudo ./docker-setup.sh
+```bash
+sudo apt update -y && \
+sudo apt install git && \
+git clone https://github.com/nomastickles/pi-setup.git && \
+cd pi-setup && \
+sudo chmod u+x ./pi-setup.sh && \
+sudo ./pi-setup.sh
 ```
 
 ## Tailscale
 
-```sh
+```bash
 curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --ssh
 ```
 
+## Hardware
+
+```bash
+# disable bluetooth && add enable power button
+sudo su && \
+sudo echo "dtoverlay=disable-bt" >> /boot/config.txt && \
+sudo echo "dtoverlay=gpio-shutdown" >> /boot/config.txt && \
+sudo reboot
+```
 
