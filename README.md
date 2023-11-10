@@ -8,6 +8,18 @@ cd pi-setup && \
 sudo chmod u+x ./pi-setup.sh && \
 sudo ./pi-setup.sh
 ```
+# local setup
+
+```bash
+docker-compose up -d
+
+docker exec -t -w /root --env NATS_URL=nats-server:4222 nats-box nats server check connection
+
+# clean up
+docker-compose down --remove-orphans
+
+```
+
 
 ## Tailscale
 

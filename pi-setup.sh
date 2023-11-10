@@ -38,6 +38,7 @@ docker-compose --version
 # to upgrade Docker run apt-mark unhold, upgrade the packages, and hold them again
 sudo apt-mark hold docker containerd
 
+# boom
 cd ./docker && sudo docker-compose up -d
 
 # test node exporter
@@ -53,4 +54,4 @@ cd ./blink1-tool && make
 sudo cp blink1-tool /usr/local/bin
 blink1-tool --millis 2000 -b 100 --green
 
-sudo lazydocker
+# sudo lazydocker

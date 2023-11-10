@@ -7,8 +7,3 @@
 - https://grafana.com/grafana/dashboards/1860-node-exporter-full/
 - https://github.com/nats-io/prometheus-nats-exporter/tree/main/walkthrough
 
-```sh
-docker-compose --project-name nats-testing up -d
-
-NATS_URL="nats-server:4222" nats server check connection
-```
