@@ -1,5 +1,5 @@
+
 version: "3.8"
-# docker-compose up -d
 
 services:
   node_exporter:
@@ -62,16 +62,17 @@ services:
   nats-server:
     image: nats:latest
     container_name: nats-server
-    # command: "-js"
-    command: "--http_port 8222 -js"
+    command: "-c /etc/nats/nats.conf --http_port 8222 -js"
     restart: unless-stopped
+    volumes:
+      - ./nats.conf:/etc/nats/nats.conf
     ports:
       - 4222:4222
       # - 6222:6222
       - 8222:8222
-  prometheus-nats-exporter:
+  nats-exporter:
     image: natsio/prometheus-nats-exporter:latest
-    container_name: prometheus-nats-exporter
+    container_name: nats-exporter
     restart: unless-stopped
     depends_on:
       - nats-server
@@ -89,11 +90,4 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
-# https://prometheus.io/docs/guides/node-exporter/
-# https://prometheus.io/docs/guides/cadvisor/#monitoring-docker-container-metrics-using-cadvisor
-# https://thesmarthomejourney.com/2022/07/25/monitoring-smarthome-prometheus/
 
-# dashboards https://grafana.com/grafana/dashboards/14282-cadvisor-exporter/
-# https://grafana.com/grafana/dashboards/1860-node-exporter-full/
-# https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/
-# https://github.com/nats-io/prometheus-nats-exporter/tree/main/walkthrough

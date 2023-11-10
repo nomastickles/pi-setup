@@ -11,4 +11,4 @@ scrape_configs:
     - targets: ['host.docker.internal:9100']
 - job_name: 'nats-exporter'
   static_configs:
-    - targets: ['prometheus-nats-exporter:7777']
+    - targets: ['nats-exporter:7777']

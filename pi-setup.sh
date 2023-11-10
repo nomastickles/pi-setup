@@ -45,4 +45,12 @@ curl http://localhost:9100/metrics
 
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 sudo cp $HOME/.local/bin/lazydocker /usr/local/bin
+
+sudo apt install libudev-dev -y
+git clone https://github.com/todbot/blink1-tool.git
+cd ./blink1-tool && make
+./blink1-tool --add_udev_rule
+sudo cp blink1-tool /usr/local/bin
+blink1-tool --millis 2000 -b 100 --green
+
 sudo lazydocker
