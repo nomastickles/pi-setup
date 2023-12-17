@@ -19,7 +19,7 @@ sudo apt-get update
 
 # latest version
 # sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo apt-get install -y docker.io
+sudo apt-get install -y docker.io jq
 
 sudo docker run hello-world
 
