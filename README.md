@@ -24,7 +24,8 @@ sudo docker-compose down --remove-orphans
 ## Metrics
 
 ```bash
-ssh -N -L 3000:localhost:3000 pak@192.168.50.68
+ssh -N -L 3000:localhost:3000 pak@192.168.88.88
+ssh -N -L 9090:localhost:9090 pak@192.168.88.88
 ```
 
 ## Tailscale
