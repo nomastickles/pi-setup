@@ -39,7 +39,7 @@ docker-compose --version
 sudo apt-mark hold docker containerd
 
 # boom
-cd ./docker && sudo docker-compose up -d
+sudo docker-compose up -d
 
 # test node exporter
 curl http://localhost:9100/metrics
@@ -48,10 +48,11 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 sudo cp $HOME/.local/bin/lazydocker /usr/local/bin
 
 sudo apt install libudev-dev -y
+cd ..
 git clone https://github.com/todbot/blink1-tool.git
-cd ./blink1-tool && make
+cd ./blink1-tool && sudo make
 ./blink1-tool --add_udev_rule
 sudo cp blink1-tool /usr/local/bin
-blink1-tool --millis 2000 -b 100 --green
+blink1-tool --millis 2000 -b 100 --magenta
 
 # sudo lazydocker
