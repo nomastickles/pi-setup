@@ -8,6 +8,7 @@ cd pi-setup && \
 sudo chmod u+x ./pi-setup.sh && \
 sudo ./pi-setup.sh
 ```
+
 ## Test nats
 
 ```bash
@@ -16,11 +17,15 @@ sudo docker exec -t --env NATS_URL=nats-server:4222 nats-box nats server check
 
 ## remove everything
 
-# clean up
 sudo docker-compose down --remove-orphans
 
 ```
 
+## Metrics
+
+```bash
+ssh -N -L 3000:localhost:3000 pak@192.168.50.68
+```
 
 ## Tailscale
 
