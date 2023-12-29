@@ -23,12 +23,18 @@ sudo docker-compose down --remove-orphans
 
 ## Metrics
 
+node exporter issue https://github.com/prometheus/node_exporter/issues/2849
+
 ```bash
-ssh -N -L 3000:localhost:3000 pak@192.168.88.88
-ssh -N -L 9090:localhost:9090 pak@192.168.88.88
+ssh -N -L 3000:localhost:3000 user@192.168.88.88 -L 9090:localhost:9090 user@192.168.88.88
+
+
+
 ```
 
 ## Tailscale
+
+<https://tailscale.com/kb/1153/enabling-https>
 
 ```bash
 sudo curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --ssh
