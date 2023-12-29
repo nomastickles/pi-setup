@@ -1,11 +1,15 @@
 #!/bin/bash
 
+echo "/////////////////////💥 RESET"
 # https://docs.docker.com/engine/install/raspberry-pi-os/
-
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
+echo "/////////////////////💥 START"
 sudo apt-get update -y
-sudo apt-get install -y ca-certificates curl gnupg
+sudo apt-get install -y ca-certificates curl gnupg libudev-dev docker.io jq
+
+echo "/////////////////////💥 Docker"
+
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -14,12 +18,6 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/raspbian \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-
-sudo apt-get update
-
-# latest version
-# sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo apt-get install -y docker.io jq
 
 sudo docker run hello-world
 
@@ -38,16 +36,17 @@ docker-compose --version
 # to upgrade Docker run apt-mark unhold, upgrade the packages, and hold them again
 sudo apt-mark hold docker containerd
 
+echo "/////////////////////💥 docker-compose"
 # boom
 sudo docker-compose up -d
-
 # test node exporter
 curl http://localhost:9100/metrics
 
+echo "/////////////////////💥 lazydocker"
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 sudo cp $HOME/.local/bin/lazydocker /usr/local/bin
 
-sudo apt install libudev-dev -y
+echo "/////////////////////💥 blink1"
 cd ..
 git clone https://github.com/todbot/blink1-tool.git
 cd ./blink1-tool && sudo make
@@ -55,4 +54,4 @@ cd ./blink1-tool && sudo make
 sudo cp blink1-tool /usr/local/bin
 blink1-tool --millis 2000 -b 100 --magenta
 
-# sudo lazydocker
+echo "/////////////////////💥 END"
