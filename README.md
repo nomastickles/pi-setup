@@ -26,7 +26,7 @@ sudo docker-compose down --remove-orphans
 node exporter issue https://github.com/prometheus/node_exporter/issues/2849
 
 ```bash
-ssh -N -L 3000:localhost:3000 user@192.168.88.88 -L 9090:localhost:9090 user@192.168.88.88
+ssh -N -L 3000:localhost:3000 user@address -L 9090:localhost:9090 user@address
 
 
 
@@ -34,11 +34,32 @@ ssh -N -L 3000:localhost:3000 user@192.168.88.88 -L 9090:localhost:9090 user@192
 
 ## Tailscale
 
-<https://tailscale.com/kb/1153/enabling-https>
+
 
 ```bash
 sudo curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --ssh
+
 ```
+
+<https://tailscale.com/kb/1153/enabling-https>
+
+```sh
+sudo openssl pkcs8 -topk8 -nocrypt -in /home/user/xxxx.xxxx.ts.net.key -out /home/user/private.pem
+
+```
+
+Home Assistant Configuration Change:
+
+```yaml
+http:
+  ssl_certificate: /config/ssl/fullchain.pem
+  ssl_key: /config/ssl/private.pem
+prometheus:
+  requires_auth: false
+```
+
+
+
 
 ## Hardware Changes
 

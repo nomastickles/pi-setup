@@ -11,4 +11,10 @@ scrape_configs:
     - targets: ['host.docker.internal:9100']
 - job_name: 'nats-exporter'
   static_configs:
-    - targets: ['nats-exporter:7777']
+    - targets: ['host.docker.internal:7778']
+- job_name: 'homeassistant'
+  scrape_interval: 5s
+  scheme: https
+  static_configs:
+    - targets: ['<tailscale endpoint>:8123']
+  metrics_path: /api/prometheus
