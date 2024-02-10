@@ -1,4 +1,4 @@
-# pi setup
+# pi-setup
 
 ```bash
 sudo apt update -y && \
@@ -57,9 +57,6 @@ http:
 prometheus:
   requires_auth: false
 ```
-
-
-
 
 ## Hardware Changes
 

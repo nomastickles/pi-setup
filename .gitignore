@@ -1,3 +1,4 @@
 scratch/*
 homeassistant/*
 !homeassistant/.gitkeep
+blink1-tool/*

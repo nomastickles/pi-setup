@@ -7,7 +7,7 @@ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
 echo "/////////////////////💥 START"
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y ca-certificates curl gnupg libudev-dev docker.io jq git
+apt-get install -y ca-certificates curl gnupg libudev-dev docker.io jq git bpytop
 
 echo "/////////////////////💥 Docker"
 
